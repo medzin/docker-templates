@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>n8n</Name>
+  <Repository>medzin/n8n</Repository>
+  <Registry>https://hub.docker.com/r/medzin/n8n</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/medzin/docker-n8n/issues/new</Support>
+  <Project>https://github.com/n8n-io/n8n</Project>
+  <GitHub>https://github.com/medzin/docker-n8n</GitHub>
+  <ReadMe>https://github.com/medzin/docker-n8n#readme</ReadMe>
+  <Overview>Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, and hundreds of integrations.</Overview>
+  <Category>Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:5678]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/medzin/docker-templates/main/medzin/n8n.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/medzin/docker-templates/main/images/n8n-icon.png</Icon>
+  <DonateText/>
+  <DonateLink/>
+  <Date>2026-01-26</Date>
+  <Changes></Changes>
+  <Config Name="Appdata" Target="/data" Default="/mnt/cache/appdata/n8n" Mode="rw" Description="Container path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/n8n</Config>
+  <Config Name="GENERIC_TIMEZONE" Target="GENERIC_TIMEZONE" Default="Etc/UTC" Mode="" Description="The n8n instance timezone. Important for schedule nodes (such as Cron)." Type="Variable" Display="always" Required="true" Mask="false">Etc/UTC</Config>
+  <Config Name="N8N_DEFAULT_LOCALE" Target="N8N_DEFAULT_LOCALE" Default="en" Mode="" Description="A locale identifier, compatible with the Accept-Language header. n8n doesn't support regional identifiers, such as de-AT. When running in a locale other than the default, n8n displays UI strings in the selected locale, and falls back to en for any untranslated strings." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="N8N_PORT" Target="N8N_PORT" Default="5678" Mode="" Description="The HTTP port n8n runs on." Type="Variable" Display="always-hide" Required="true" Mask="false">5678</Config>
+  <Config Name="WebUI" Target="5678" Default="5678" Mode="tcp" Description="The port for n8n web interface." Type="Port" Display="always" Required="true" Mask="false">5678</Config>
+  <Config Name="EXECUTIONS_DATA_MAX_AGE" Target="EXECUTIONS_DATA_MAX_AGE" Default="168" Mode="" Description="The execution age (in hours) before it's deleted." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="N8N_EDITOR_BASE_URL" Target="N8N_EDITOR_BASE_URL" Default="" Mode="" Description="Public URL where users can access the editor. Also used for emails sent from n8n and the redirect URL for SAML based authentication." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="N8N_HIRING_BANNER_ENABLED" Target="N8N_HIRING_BANNER_ENABLED" Default="false" Mode="" Description="Whether to show the n8n hiring banner in the console (true) or not (false)." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="N8N_HOST" Target="N8N_HOST" Default="" Mode="" Description="Host name n8n runs on." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="N8N_LOG_FORMAT" Target="N8N_LOG_FORMAT" Default="text" Mode="" Description="The log format to use. text prints human readable messages. json prints one JSON object per line containing the message, level, timestamp, and all metadata. This is useful for production monitoring as well as debugging." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="N8N_LOG_LEVEL" Target="N8N_LOG_LEVEL" Default="info" Mode="" Description="Log output level." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="N8N_PROXY_HOPS" Target="N8N_PROXY_HOPS" Default="0" Mode="" Description="Number of reverse-proxies n8n is running behind." Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="N8N_SECURE_COOKIE" Target="N8N_SECURE_COOKIE" Default="true" Mode="" Description="Ensures that cookies are only sent over HTTPS, enhancing security." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID for the process and file permissions." Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID for the process and file permissions." Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+</Container>

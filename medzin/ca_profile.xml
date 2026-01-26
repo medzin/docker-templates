@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Maintainer>
+  <Icon>https://raw.githubusercontent.com/medzin/docker-templates/main/images/profile-icon.png</Icon>
+  <Profile>Hobbyist and home lab enthusiast creating Docker templates to simplify self-hosted deployments for the community.</Profile>
+  <WebsiteLink>https://github.com/medzin</WebsiteLink>
+  <Twitter>https://x.com/m3d21n</Twitter>
+</Maintainer>
