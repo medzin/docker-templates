@@ -6,7 +6,7 @@
   <Network>bridge</Network>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/medzin/docker-n8n/issues/new</Support>
+  <Support>https://forums.unraid.net/topic/197063-support-medzin-n8n/</Support>
   <Project>https://github.com/n8n-io/n8n</Project>
   <GitHub>https://github.com/medzin/docker-n8n</GitHub>
   <ReadMe>https://github.com/medzin/docker-n8n#readme</ReadMe>
