@@ -11,7 +11,7 @@
   <GitHub>https://github.com/NousResearch/hermes-agent</GitHub>
   <ReadMe>https://hermes-agent.nousresearch.com/docs/user-guide/docker/</ReadMe>
   <Overview>The self-improving AI agent built by Nous Research. The only agent with a built-in learning loop.</Overview>
-  <Category>Productivity: Tools:</Category>
+  <Category>AI:</Category>
   <WebUI>http://[IP]:[PORT:9119]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/medzin/docker-templates/main/medzin/hermes-agent.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/medzin/docker-templates/main/images/hermes-agent-icon.png</Icon>
