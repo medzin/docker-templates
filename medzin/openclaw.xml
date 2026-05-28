@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>OpenClaw</Name>
+  <Repository>medzin/openclaw</Repository>
+  <Registry>https://hub.docker.com/r/medzin/openclaw</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/199102-support-medzin-openclaw/</Support>
+  <Project>https://github.com/openclaw/openclaw</Project>
+  <GitHub>https://github.com/medzin/docker-openclaw</GitHub>
+  <ReadMe>https://github.com/medzin/docker-openclaw#readme</ReadMe>
+  <Overview>Your own personal AI assistant. Any OS. Any Platform. The lobster way.</Overview>
+  <Category>AI:</Category>
+  <WebUI>http://[IP]:[PORT:18789]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/medzin/docker-templates/main/medzin/openclaw.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/medzin/docker-templates/main/images/openclaw-icon.png</Icon>
+  <DonateText/>
+  <DonateLink/>
+  <Date>2026-05-28</Date>
+  <Changes></Changes>
+  <Config Name="Appdata" Target="/home/node/.openclaw" Default="/mnt/cache/appdata/openclaw" Mode="rw" Description="OpenClaw state, config, and workspace." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/openclaw</Config>
+  <Config Name="Auth Profile Secrets" Target="/home/node/.config/openclaw" Default="/mnt/cache/appdata/openclaw/auth-profile-secrets" Mode="rw" Description="OpenClaw auth profile secrets directory." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/openclaw/auth-profile-secrets</Config>
+  <Config Name="WebUI" Target="18789" Default="18789" Mode="tcp" Description="OpenClaw gateway web interface." Type="Port" Display="always" Required="true" Mask="false">18789</Config>
+  <Config Name="Bridge" Target="18790" Default="18790" Mode="tcp" Description="OpenClaw bridge port." Type="Port" Display="always" Required="true" Mask="false">18790</Config>
+  <Config Name="OPENCLAW_GATEWAY_TOKEN" Target="OPENCLAW_GATEWAY_TOKEN" Default="" Mode="" Description="Shared token required to connect to the OpenClaw gateway. Set this before exposing the WebUI port." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="TZ" Target="TZ" Default="UTC" Mode="" Description="Container timezone." Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
+  <Config Name="OPENCLAW_DISABLE_BONJOUR" Target="OPENCLAW_DISABLE_BONJOUR" Default="1" Mode="" Description="Disable Bonjour/mDNS discovery inside the container." Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID for the OpenClaw process and file permissions." Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID for the OpenClaw process and file permissions." Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+</Container>
