@@ -10,6 +10,14 @@
   <Project>https://github.com/openclaw/openclaw</Project>
   <GitHub>https://github.com/medzin/docker-openclaw</GitHub>
   <ReadMe>https://github.com/medzin/docker-openclaw#readme</ReadMe>
+  <Branch>
+    <Tag>latest</Tag>
+    <TagDescription>Standard OpenClaw image.</TagDescription>
+  </Branch>
+  <Branch>
+    <Tag>extras</Tag>
+    <TagDescription>OpenClaw image with additional agent tools: ripgrep, OpenSSH client, nmap, qrencode, ImageMagick, FFmpeg, nftables, and debugpy.</TagDescription>
+  </Branch>
   <Overview>Your own personal AI assistant. Any OS. Any Platform. The lobster way.</Overview>
   <Category>AI:</Category>
   <WebUI>http://[IP]:[PORT:18789]</WebUI>
@@ -17,8 +25,12 @@
   <Icon>https://raw.githubusercontent.com/medzin/docker-templates/main/images/openclaw-icon.png</Icon>
   <DonateText/>
   <DonateLink/>
-  <Date>2026-05-28</Date>
-  <Changes></Changes>
+  <Date>2026-06-05</Date>
+  <Changes>
+### 2026-06-05
+- Added `extras` branch for the OpenClaw image with additional agent tools.
+- Kept `latest` as the default standard image branch.
+  </Changes>
   <Config Name="Appdata" Target="/home/node/.openclaw" Default="/mnt/cache/appdata/openclaw" Mode="rw" Description="OpenClaw state, config, and workspace." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/openclaw</Config>
   <Config Name="Auth Profile Secrets" Target="/home/node/.config/openclaw" Default="/mnt/cache/appdata/openclaw/auth-profile-secrets" Mode="rw" Description="OpenClaw auth profile secrets directory." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/openclaw/auth-profile-secrets</Config>
   <Config Name="WebUI" Target="18789" Default="18789" Mode="tcp" Description="OpenClaw gateway web interface." Type="Port" Display="always" Required="true" Mask="false">18789</Config>
