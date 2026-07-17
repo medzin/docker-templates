@@ -19,6 +19,10 @@
   <DonateLink/>
   <Date>2026-05-25</Date>
   <Changes>
+### 2026.07.17
+- Fix dashboard startup after the upstream authentication hardening: replace the deprecated HERMES_DASHBOARD_INSECURE setting with required username/password authentication.
+- Existing installs must add HERMES_DASHBOARD_BASIC_AUTH_USERNAME and HERMES_DASHBOARD_BASIC_AUTH_PASSWORD to the container settings. HERMES_DASHBOARD_BASIC_AUTH_SECRET is optional but recommended so login sessions survive container restarts.
+
 ### 2026.06.03
 - Fix WebUI not loading: add HERMES_DASHBOARD_INSECURE=1 so the dashboard binds on 0.0.0.0 (the OAuth gate otherwise refuses to bind and the WebUI never opens).
 - Fix permission errors: HERMES_UID/HERMES_GID now default to 10000 (the image rejects values below 1000, so the old 99/100 defaults silently fell back to 10000 and broke writes to /opt/data/pairing). Existing installs may need: chown -R 10000:10000 /mnt/cache/appdata/hermes-agent
@@ -30,7 +34,9 @@
   <Config Name="HERMES_DASHBOARD" Target="HERMES_DASHBOARD" Default="1" Mode="" Description="Set to 1 (or true / yes) to launch the dashboard alongside the main command" Type="Variable" Display="always" Required="true" Mask="false">1</Config>
   <Config Name="HERMES_DASHBOARD_HOST" Target="HERMES_DASHBOARD_HOST" Default="0.0.0.0" Mode="" Description="Bind address for the dashboard HTTP server" Type="Variable" Display="advanced" Required="true" Mask="false">0.0.0.0</Config>
   <Config Name="HERMES_DASHBOARD_PORT" Target="HERMES_DASHBOARD_PORT" Default="9119" Mode="" Description="Port for the dashboard HTTP server" Type="Variable" Display="advanced-hide" Required="true" Mask="false">9119</Config>
-  <Config Name="HERMES_DASHBOARD_INSECURE" Target="HERMES_DASHBOARD_INSECURE" Default="1" Mode="" Description="Set to 1 to disable the dashboard's OAuth auth gate. This is REQUIRED for the WebUI to open when binding to 0.0.0.0 (LAN access) without Nous Portal OAuth - otherwise the dashboard refuses to bind and the WebUI never loads. WARNING: with this on, the dashboard is UNAUTHENTICATED - anyone who can reach this port has full control. Keep it on a trusted LAN and do NOT port-forward it to the internet. Set to 0 only if you configure Portal OAuth or put an authenticated reverse proxy in front." Type="Variable" Display="always" Required="true" Mask="false">1</Config>
+  <Config Name="HERMES_DASHBOARD_BASIC_AUTH_USERNAME" Target="HERMES_DASHBOARD_BASIC_AUTH_USERNAME" Default="admin" Mode="" Description="Username for the dashboard login." Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
+  <Config Name="HERMES_DASHBOARD_BASIC_AUTH_PASSWORD" Target="HERMES_DASHBOARD_BASIC_AUTH_PASSWORD" Default="" Mode="" Description="Required password for the dashboard login. Use a strong password and keep the dashboard on a trusted LAN or VPN; do not expose it directly to the internet." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="HERMES_DASHBOARD_BASIC_AUTH_SECRET" Target="HERMES_DASHBOARD_BASIC_AUTH_SECRET" Default="" Mode="" Description="Optional but recommended signing secret so dashboard login sessions survive container restarts. Use at least 32 random bytes, for example the output of: openssl rand -hex 32. If left blank, Hermes generates a new secret at each start and existing sessions are signed out." Type="Variable" Display="advanced" Required="false" Mask="true"/>
   <Config Name="API_SERVER_ENABLED" Target="API_SERVER_ENABLED" Default="false" Mode="" Description="Enable the API server" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
   <Config Name="API_SERVER_KEY" Target="API_SERVER_KEY" Default="" Mode="" Description="Bearer token for auth" Type="Variable" Display="always" Required="false" Mask="true"/>
   <Config Name="TELEGRAM_BOT_TOKEN" Target="TELEGRAM_BOT_TOKEN" Default="" Mode="" Description="Telegram bot token (from @BotFather)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
